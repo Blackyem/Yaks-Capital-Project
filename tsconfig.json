@@ -19,7 +19,9 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+       "@mui/system": ["./empty.ts"],
+      "@mui/system/*": ["./empty.ts"]
     }
   },
   "include": [
