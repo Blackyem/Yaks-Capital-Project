@@ -12,16 +12,14 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <Box sx={{ bgcolor: "#000", color: "white", mt: 10, pb: 4 }}>
+    <Box sx={{ bgcolor: "#000", color: "white", mt: 15, pb: 1 }}>
       <Container maxWidth="lg">
-        {/* Top row: logo on the right with proper spacing */}
         <Box
           sx={{
             display: "flex",
             justifyContent: "flex-end",
             alignItems: "center",
-            pb: 3,
-            pt: 5,
+            pb: 0,
           }}
         >
           <MUILink
@@ -31,18 +29,18 @@ export default function Footer() {
             sx={{ display: "flex", alignItems: "center" }}
           >
             <Image
-              src="/EVEST2.png"
+              src="/EVEST4.png"
               alt="Company Logo"
-              width={150}
-              height={150}
+              width={100}
+              height={100}
               style={{ objectFit: "contain" }}
             />
           </MUILink>
         </Box>
-
         <Divider
-          sx={{ bgcolor: "rgba(255,255,255,0.2)", height: "1px", my: 3 }}
+          sx={{ bgcolor: "rgba(255,255,255,0.2)", height: "1px", mt: 0 }}
         />
+
 
         {/* Links and copyright section - improved layout balance */}
         <Box
@@ -51,7 +49,7 @@ export default function Footer() {
             justifyContent: "space-between",
             alignItems: "center",
             mb: 4,
-            mt: 2,
+            mt: 5,
           }}
         >
           {/* Left section: Links with pipe separators */}
@@ -98,9 +96,11 @@ export default function Footer() {
           sx={{
             mb: 4,
             lineHeight: 1.8,
-            maxWidth: "100%",
+            maxWidth: "90%",
+            mx: "auto",
             opacity: 0.85,
             fontSize: "0.95rem",
+            textAlign: "center",
           }}
         >
           The materials on this website are for illustration and discussion
@@ -116,9 +116,11 @@ export default function Footer() {
           sx={{
             mb: 4,
             lineHeight: 1.8,
-            maxWidth: "100%",
+            maxWidth: "90%",
+            mx: "auto",
             opacity: 0.85,
             fontSize: "0.95rem",
+            textAlign: "center",
           }}
         >
           <MUILink
@@ -146,10 +148,10 @@ export default function Footer() {
           >
             www.renfund.com
           </MUILink>
-          " are the only official Renaissance Technologies LLC websites. Neither
+          are the only official Renaissance Technologies LLC websites. Neither
           Renaissance Technologies nor any of its affiliates operates any other
           publicly available website. Other websites purporting to be associated
-          with our firm or our funds are not legitimate."
+          with our firm or our funds are not legitimate.
         </Typography>
 
         {/* Badge at bottom */}
@@ -157,8 +159,8 @@ export default function Footer() {
           sx={{
             display: "flex",
             justifyContent: "center",
-            mt: 6,
-            mb: 3,
+            mt: 1,
+            mb: 2,
             opacity: 0.9,
           }}
         >
