@@ -37,7 +37,7 @@ export default function Navbar() {
         height: "100px",
         justifyContent: "center",
         py: 0,
-        boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+        boxShadow: "0 1px 3.5px rgba(0, 0, 0, 0.33)",
       }}
     >
       <Toolbar

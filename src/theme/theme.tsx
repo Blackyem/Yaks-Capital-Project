@@ -46,7 +46,7 @@ palette: {
   mode: "light",
 
   primary: {
-    main: "#7f0000",       // Renaissance deep red
+    main: "#7f0000",       
     light: "#a30000",
     dark: "#4c0000",
     contrastText: "#ffffff",
@@ -68,7 +68,6 @@ palette: {
 
   divider: "#dddddd",      // Thin line color for tables, borders
 },
-
 
   // ↓ Your existing component overrides stay here
   components: {
