@@ -158,6 +158,7 @@ export default function Navbar() {
             color="inherit"
           >
             <Button
+             size="small"
               variant="outlined"
               sx={{
                 backgroundColor: "#c62828",
@@ -167,7 +168,7 @@ export default function Navbar() {
                   color: "#c62828",
                 },
                 color: "white",
-                borderRadius: "25px",
+                borderRadius: "10px",
                 textTransform: "none",
                 fontSize: "16px",
                 fontWeight: 600,
