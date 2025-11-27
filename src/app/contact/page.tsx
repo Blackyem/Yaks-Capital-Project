@@ -44,11 +44,10 @@ export default function ContactPage() {
 
   // Only digits for phone
   const handlePhoneChange = (e: any) => {
-    const numeric = e.target.value.replace(/\D/g, "");
+    const numeric = e.target.value.replace(+/\D/g, "");
     setPhone(numeric);
   };
 
-  // Submit handler with inline validation
   const handleSubmit = () => {
     const newErrors = {
       fullName: "",
@@ -80,7 +79,6 @@ export default function ContactPage() {
     setReason("");
     setAnswer("");
 
-    // Regenerate math challenge
     const a = Math.floor(Math.random() * 10) + 1;
     const b = Math.floor(Math.random() * 10) + 1;
     setNum1(a);
@@ -88,7 +86,6 @@ export default function ContactPage() {
     setCorrectAnswer(a + b);
   };
 
-  // Cancel button resets form
   const handleCancel = () => {
     setFullName("");
     setEmail("");
@@ -105,7 +102,6 @@ export default function ContactPage() {
     });
   };
 
-  // Common small label style
   const smallLabel = {
     "& .MuiInputBase-root": { height: 40 },
     "& .MuiInputLabel-root": { fontSize: "13px" },
@@ -255,6 +251,8 @@ export default function ContactPage() {
                       size="small"
                       sx={{
                         backgroundColor: "#c62828",
+                        border: "1px solid transparent",
+
                         "&:hover": {
                           backgroundColor: "#fff",
                           border: "1px solid #c62828",
@@ -275,6 +273,8 @@ export default function ContactPage() {
                       size="small"
                       sx={{
                         backgroundColor: "#c62828",
+                        border: "1px solid transparent",
+
                         "&:hover": {
                           backgroundColor: "#fff",
                           border: "1px solid #c62828",

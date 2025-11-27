@@ -12,12 +12,15 @@ import {
 } from "@mui/material";
 import NextLink from "next/link";
 import { useState } from "react";
-import Image from "next/image";     
+import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 export default function Navbar() {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-
   const open = Boolean(anchorEl);
+
+  const pathname = usePathname();
+  const isLoginPage = pathname === "/login";
 
   const handleOpen = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -43,17 +46,21 @@ export default function Navbar() {
       <Toolbar
         sx={{
           display: "flex",
-          justifyContent: "space-between",
+          justifyContent: isLoginPage ? "center" : "space-between",
           alignItems: "center",
         }}
       >
-        {/* LEFT: Logo */}
+        {/* LOGO */}
         <MUILink
           component={NextLink}
           href="/"
           underline="none"
           color="inherit"
-          sx={{ display: "flex", alignItems: "center", pl: 2 }}
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            pl: isLoginPage ? 0 : 2,
+          }}
         >
           <Image
             src="/EVEST1.png"
@@ -61,124 +68,123 @@ export default function Navbar() {
             width={150}
             height={150}
           />
-
-          <Typography
-            variant="h5"
-            sx={{
-              fontWeight: 500,
-              fontSize: "32px",
-              letterSpacing: "0.5px",
-            }}
-          >
-                    </Typography>
         </MUILink>
 
-        {/* RIGHT SIDE LINKS */}
-        <Box sx={{ display: "flex", gap: 3, alignItems: "center", pr: 3 }}>
-          <Box sx={{ display: "flex", gap: 3 }}>
-            <MUILink
-              component={NextLink}
-              href="/about"
-              underline="none"
-              color="inherit"
-              sx={{ cursor: "pointer" }}
-            >
+        {/* --------------------------
+            HIDE NAV LINKS ON LOGIN PAGE
+        --------------------------- */}
+        {!isLoginPage && (
+          <Box sx={{ display: "flex", gap: 3, alignItems: "center", pr: 3 }}>
+            <Box sx={{ display: "flex", gap: 3 }}>
+              {/* ABOUT */}
+              <MUILink
+                component={NextLink}
+                href="/about"
+                underline="none"
+                color="inherit"
+                sx={{ cursor: "pointer" }}
+              >
+                <Typography
+                  sx={{
+                    fontSize: "17px",
+                    fontWeight: 400,
+                    "&:hover": { color: "#7f0000" },
+                  }}
+                >
+                  About
+                </Typography>
+              </MUILink>
+
+              {/* CAREERS */}
               <Typography
                 sx={{
+                  cursor: "pointer",
                   fontSize: "17px",
                   fontWeight: 400,
+                  color: open ? "#7f0000" : "inherit",
+                  borderBottom: open ? "2px solid #7f0000" : "none",
+                  pb: open ? "2px" : 0,
                   "&:hover": { color: "#7f0000" },
                 }}
+                onClick={handleOpen}
               >
-                About
+                Careers
               </Typography>
-            </MUILink>
 
-            <Typography
-              sx={{
-                cursor: "pointer",
-                fontSize: "17px",
-                fontWeight: 400,
-                "&:hover": { color: "#7f0000" },
-              }}
-              onClick={handleOpen}
-            >
-              Careers
-            </Typography>
-
-            <Menu
-              anchorEl={anchorEl}
-              open={open}
-              onClose={handleClose}
-              anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
-              transformOrigin={{ vertical: "top", horizontal: "center" }}
-            >
-              <MenuItem
-                onClick={handleClose}
-                component={NextLink}
-                href="/careers/job"
+              <Menu
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+                anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+                transformOrigin={{ vertical: "top", horizontal: "center" }}
               >
-                Jobs
-              </MenuItem>
+                <MenuItem
+                  onClick={handleClose}
+                  component={NextLink}
+                  href="/careers/job"
+                >
+                  Jobs
+                </MenuItem>
 
-              <MenuItem
-                onClick={handleClose}
+                <MenuItem
+                  onClick={handleClose}
+                  component={NextLink}
+                  href="/careers/benefits"
+                >
+                  Benefits
+                </MenuItem>
+              </Menu>
+
+              {/* CONTACT */}
+              <MUILink
                 component={NextLink}
-                href="/careers/benefits"
+                href="/contact"
+                underline="none"
+                color="inherit"
+                sx={{ cursor: "pointer" }}
               >
-                Benefits
-              </MenuItem>
-            </Menu>
+                <Typography
+                  sx={{
+                    fontSize: "17px",
+                    fontWeight: 400,
+                    "&:hover": { color: "#7f0000" },
+                  }}
+                >
+                  Contact
+                </Typography>
+              </MUILink>
+            </Box>
 
-            {/* CONTACT */}
+            {/* LOGIN BUTTON */}
             <MUILink
               component={NextLink}
-              href="/contact"
+              href="/login"
               underline="none"
               color="inherit"
-              sx={{ cursor: "pointer" }}
             >
-              <Typography
+              <Button
+                size="small"
+                variant="outlined"
                 sx={{
-                  fontSize: "17px",
-                  fontWeight: 400,
-                  "&:hover": { color: "#7f0000" },
+                  backgroundColor: "#c62828",
+                  "&:hover": {
+                    backgroundColor: "#FFFFFF",
+                    border: "1px solid #c62828",
+                    color: "#c62828",
+                  },
+                  color: "white",
+                  borderRadius: "10px",
+                  textTransform: "none",
+                  fontSize: "16px",
+                  fontWeight: 600,
+                  px: 3,
                 }}
               >
-                Contact
-              </Typography>
+                Log In
+              </Button>
             </MUILink>
           </Box>
-
-          {/* LOGIN BUTTON */}
-          <MUILink
-            component={NextLink}
-            href="/login"
-            underline="none"
-            color="inherit"
-          >
-            <Button
-             size="small"
-              variant="outlined"
-              sx={{
-                backgroundColor: "#c62828",
-                "&:hover": {
-                  backgroundColor: "#FFFFFF",
-                  border: "1px solid #c62828",
-                  color: "#c62828",
-                },
-                color: "white",
-                borderRadius: "10px",
-                textTransform: "none",
-                fontSize: "16px",
-                fontWeight: 600,
-                px: 3,
-              }}
-            >
-              Log In
-            </Button>
-          </MUILink>
-        </Box>
+        )}
       </Toolbar>
     </AppBar>
   );

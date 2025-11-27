@@ -23,6 +23,7 @@ export default function HomeSection() {
             maxWidth: "900px",
             mx: "auto",
             pt: 4,
+            pb: 12,
           }}
         >
           {/* LEFT COLUMN */}

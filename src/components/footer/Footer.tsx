@@ -12,7 +12,7 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <Box sx={{ bgcolor: "#000", color: "white", mt: 15, pb: 1 }}>
+    <Box sx={{ bgcolor: "#000", color: "white", mt: -1, pb: 1 }}>
       <Container maxWidth="lg">
         <Box
           sx={{
