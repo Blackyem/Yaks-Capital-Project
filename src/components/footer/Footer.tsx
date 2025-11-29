@@ -14,12 +14,14 @@ export default function Footer() {
   return (
     <Box sx={{ bgcolor: "#000", color: "white", mt: -1, pb: 1 }}>
       <Container maxWidth="lg">
+        {/* Logo */}
         <Box
           sx={{
             display: "flex",
-            justifyContent: "flex-end",
+            justifyContent: { xs: "center", md: "flex-end" }, // center on mobile
             alignItems: "center",
             pb: 0,
+            pt: { xs: 3, md: 0 },
           }}
         >
           <MUILink
@@ -37,23 +39,39 @@ export default function Footer() {
             />
           </MUILink>
         </Box>
+
+        {/* Divider */}
         <Divider
-          sx={{ bgcolor: "rgba(255,255,255,0.2)", height: "1px", mt: 0 }}
+          sx={{
+            bgcolor: "rgba(255,255,255,0.2)",
+            height: "1px",
+            mt: { xs: 2, md: 0 },
+          }}
         />
 
-
-        {/* Links and copyright section - improved layout balance */}
+        {/* Links + Copyright */}
         <Box
           sx={{
             display: "flex",
+            flexDirection: { xs: "column", md: "row" }, // mobile stack
             justifyContent: "space-between",
-            alignItems: "center",
+            alignItems: { xs: "center", md: "center" },
+            gap: { xs: 2.5, md: 0 },
             mb: 4,
             mt: 5,
+            textAlign: { xs: "center", md: "left" },
           }}
         >
-          {/* Left section: Links with pipe separators */}
-          <Box sx={{ display: "flex", gap: 2, alignItems: "center" }}>
+          {/* Links */}
+          <Box
+            sx={{
+              display: "flex",
+              gap: { xs: 1.5, md: 2 },
+              alignItems: "center",
+              flexWrap: "wrap",
+              justifyContent: { xs: "center", md: "flex-start" },
+            }}
+          >
             <MUILink
               href="#"
               underline="hover"
@@ -61,6 +79,7 @@ export default function Footer() {
             >
               Privacy Policies
             </MUILink>
+
             <Typography sx={{ color: "white", opacity: 0.6 }}>|</Typography>
 
             <MUILink
@@ -70,6 +89,7 @@ export default function Footer() {
             >
               FINRA BrokerCheck
             </MUILink>
+
             <Typography sx={{ color: "white", opacity: 0.6 }}>|</Typography>
 
             <MUILink
@@ -81,16 +101,21 @@ export default function Footer() {
             </MUILink>
           </Box>
 
-          {/* Right section: Copyright */}
+          {/* Copyright */}
           <Typography
             variant="body2"
-            sx={{ fontSize: "0.95rem", opacity: 0.9, textAlign: "right" }}
+            sx={{
+              fontSize: "0.95rem",
+              opacity: 0.9,
+              textAlign: { xs: "center", md: "right" },
+              mt: { xs: 2, md: 0 },
+            }}
           >
             © 2025 Yaks Capital. All Rights Reserved.
           </Typography>
         </Box>
 
-        {/* Main disclaimer paragraph */}
+        {/* Disclaimer 1 */}
         <Typography
           variant="body2"
           sx={{
@@ -99,8 +124,9 @@ export default function Footer() {
             maxWidth: "90%",
             mx: "auto",
             opacity: 0.85,
-            fontSize: "0.95rem",
+            fontSize: { xs: "0.88rem", md: "0.95rem" },
             textAlign: "center",
+            px: { xs: 1 },
           }}
         >
           The materials on this website are for illustration and discussion
@@ -110,7 +136,7 @@ export default function Footer() {
           RESULTS.
         </Typography>
 
-        {/* Additional legal paragraph with links */}
+        {/* Disclaimer 2 */}
         <Typography
           variant="body2"
           sx={{
@@ -119,8 +145,9 @@ export default function Footer() {
             maxWidth: "90%",
             mx: "auto",
             opacity: 0.85,
-            fontSize: "0.95rem",
+            fontSize: { xs: "0.88rem", md: "0.95rem" },
             textAlign: "center",
+            px: { xs: 1 },
           }}
         >
           <MUILink
@@ -154,7 +181,7 @@ export default function Footer() {
           with our firm or our funds are not legitimate.
         </Typography>
 
-        {/* Badge at bottom */}
+        {/* Bottom Badge */}
         <Box
           sx={{
             display: "flex",

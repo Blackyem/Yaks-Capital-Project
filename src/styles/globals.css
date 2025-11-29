@@ -24,3 +24,28 @@ body {
   column-gap: 20px;  
   padding: 0 20px;   
 }
+
+
+.login-fade-bg {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #c1121f;
+
+  animation: fadeBg 2.5s ease-in-out forwards;
+}
+
+@keyframes fadeBg {
+  0% {
+    background-color: #c1121f;
+    background-image: none;
+  }
+
+  100% {
+    background-color: #c1121f;
+    background-image: url('https://unsplash.com/s/photos/dark-abstract');
+    background-size: cover;
+    background-position: center;
+  }
+}

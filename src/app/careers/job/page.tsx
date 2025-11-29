@@ -3,16 +3,25 @@ import ArrowForward from "@mui/icons-material/ArrowForward";
 
 export default function JobsPage() {
   return (
-    <Box sx={{ width: "100%", maxWidth: "1400px", mx: "auto", pl: 20, pr: 20, pt: 5, pb: 10 }}>
+    <Box
+      sx={{
+        width: "100%",
+        maxWidth: "1400px",
+        mx: "auto",
+        px: { xs: 2, sm: 4, md: 10, lg: 20 }, // responsive padding
+        pt: 5,
+        pb: 10,
+      }}
+    >
       {/* Category: Facilities */}
       <Typography
         sx={{
-          fontSize: "22px",
+          fontSize: { xs: "18px", sm: "20px", md: "22px" },
           fontWeight: 600,
           color: "#8B1E1E",
           mb: 2,
           mt: 4,
-          ml: 3,
+          ml: { xs: 0, md: 3 },
         }}
       >
         Facilities
@@ -23,30 +32,41 @@ export default function JobsPage() {
       <Box
         sx={{
           display: "flex",
+          flexDirection: { xs: "column", sm: "row" },
           justifyContent: "space-between",
-          alignItems: "center",
+          alignItems: { xs: "flex-start", sm: "center" },
+          gap: { xs: 1, sm: 0 },
           mb: 8,
-          ml: 3,
+          ml: { xs: 0, md: 3 },
           fontSize: "20px",
         }}
       >
         <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-          <Typography sx={{ fontSize: "18px" }}>Data Center HVAC/Cooling Specialist</Typography>
-          <ArrowForward sx={{ fontSize: "14px" }} />
+          <Typography sx={{ fontSize: { xs: "16px", sm: "18px" } }}>
+            Data Center HVAC/Cooling Specialist
+          </Typography>
+          <ArrowForward sx={{ fontSize: { xs: "12px", md: "14px" } }} />
         </Box>
 
-        <Typography sx={{ fontSize: "17px", whiteSpace: "nowrap", mr: 4 }}>East Setauket, NY</Typography>
+        <Typography
+          sx={{
+            fontSize: { xs: "15px", sm: "17px" },
+            whiteSpace: { xs: "normal", sm: "nowrap" },
+            mr: { xs: 0, sm: 4 },
+          }}
+        >
+          East Setauket, NY
+        </Typography>
       </Box>
 
       {/* Category: Programming */}
       <Typography
         sx={{
-          fontSize: "22px",
+          fontSize: { xs: "18px", sm: "20px", md: "22px" },
           fontWeight: 600,
           color: "#8B1E1E",
           mb: 2,
-          ml: 3,
-          
+          ml: { xs: 0, md: 3 },
         }}
       >
         Programming
@@ -54,7 +74,6 @@ export default function JobsPage() {
 
       <Divider sx={{ mb: 2, borderColor: "#000" }} />
 
-      {/* Jobs under Programming */}
       {[
         { title: "Data Programmer", location: "East Setauket, NY" },
         {
@@ -71,79 +90,105 @@ export default function JobsPage() {
           key={index}
           sx={{
             display: "flex",
+            flexDirection: { xs: "column", sm: "row" },
             justifyContent: "space-between",
-            alignItems: "center",
+            alignItems: { xs: "flex-start", sm: "center" },
+            gap: { xs: 1, sm: 0 },
             mb: 3,
-            ml: 3,
-            mr: 4,
-            fontSize: "18px",
+            ml: { xs: 0, md: 3 },
+            mr: { xs: 0, md: 4 },
           }}
         >
           <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-            <Typography sx={{ fontSize: "18px" }}>{job.title}</Typography>
-            <ArrowForward sx={{ fontSize: "1px" }} />
+            <Typography sx={{ fontSize: { xs: "16px", sm: "18px" } }}>
+              {job.title}
+            </Typography>
+            <ArrowForward sx={{ fontSize: { xs: "12px", md: "14px" } }} />
           </Box>
 
-          <Typography sx={{ fontSize: "17px", whiteSpace: "nowrap", ml: 4 }}>{job.location}</Typography>
+          <Typography
+            sx={{
+              fontSize: { xs: "15px", sm: "17px" },
+              whiteSpace: { xs: "normal", sm: "nowrap" },
+              ml: { xs: 0, sm: 4 },
+            }}
+          >
+            {job.location}
+          </Typography>
         </Box>
       ))}
 
       {/* Category: Research */}
       <Typography
         sx={{
-          fontSize: "22px",
+          fontSize: { xs: "18px", sm: "20px", md: "22px" },
           fontWeight: 600,
           color: "#8B1E1E",
           mb: 2,
           mt: 6,
-          ml: 3,
+          ml: { xs: 0, md: 3 },
         }}
       >
         Research
       </Typography>
 
       <Divider sx={{ mb: 2, borderColor: "#000" }} />
+
       {[
         { title: "Research Engineer ", location: "East Setauket, NY" },
         {
           title: "Research Scientist ",
           location: "New York, NY / East Setauket, NY",
         },
-             ].map((job, index) => (
+      ].map((job, index) => (
         <Box
           key={index}
           sx={{
             display: "flex",
+            flexDirection: { xs: "column", sm: "row" },
             justifyContent: "space-between",
-            alignItems: "center",
+            alignItems: { xs: "flex-start", sm: "center" },
+            gap: { xs: 1, sm: 0 },
             mb: 3,
-            ml: 3,
-            mr: 4,
-            fontSize: "18px",
+            ml: { xs: 0, md: 3 },
+            mr: { xs: 0, md: 4 },
           }}
         >
           <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-            <Typography sx={{ fontSize: "18px" }}>{job.title}</Typography>
-            <ArrowForward sx={{ fontSize: "15px" }} />
+            <Typography sx={{ fontSize: { xs: "16px", sm: "18px" } }}>
+              {job.title}
+            </Typography>
+            <ArrowForward sx={{ fontSize: { xs: "12px", md: "15px" } }} />
           </Box>
 
-          <Typography sx={{ fontSize: "18px", whiteSpace: "nowrap", ml: 4 }}>{job.location}</Typography>
+          <Typography
+            sx={{
+              fontSize: { xs: "15px", sm: "18px" },
+              whiteSpace: { xs: "normal", sm: "nowrap" },
+              ml: { xs: 0, sm: 4 },
+            }}
+          >
+            {job.location}
+          </Typography>
         </Box>
       ))}
+
+      {/* Category: Systems */}
       <Typography
         sx={{
-          fontSize: "22px",
+          fontSize: { xs: "18px", sm: "20px", md: "22px" },
           fontWeight: 600,
           color: "#8B1E1E",
           mb: 2,
           mt: 6,
-          ml: 3,
+          ml: { xs: 0, md: 3 },
         }}
       >
         Systems
       </Typography>
 
       <Divider sx={{ mb: 2, borderColor: "#000" }} />
+
       {[
         { title: "Network Engineer", location: "East Setauket, NY" },
         {
@@ -154,25 +199,36 @@ export default function JobsPage() {
           title: "Systems Administrator ",
           location: "New York, NY",
         },
-             ].map((job, index) => (
+      ].map((job, index) => (
         <Box
           key={index}
           sx={{
             display: "flex",
+            flexDirection: { xs: "column", sm: "row" },
             justifyContent: "space-between",
-            alignItems: "center",
+            alignItems: { xs: "flex-start", sm: "center" },
+            gap: { xs: 1, sm: 0 },
             mb: 3,
-            ml: 3,
-            mr: 4,
-            fontSize: "18px",
+            ml: { xs: 0, md: 3 },
+            mr: { xs: 0, md: 4 },
           }}
         >
           <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-            <Typography sx={{ fontSize: "18px" }}>{job.title}</Typography>
-            <ArrowForward sx={{ fontSize: "15px" }} />
+            <Typography sx={{ fontSize: { xs: "16px", sm: "18px" } }}>
+              {job.title}
+            </Typography>
+            <ArrowForward sx={{ fontSize: { xs: "12px", md: "15px" } }} />
           </Box>
 
-          <Typography sx={{ fontSize: "18px", whiteSpace: "nowrap", ml: 4 }}>{job.location}</Typography>
+          <Typography
+            sx={{
+              fontSize: { xs: "15px", sm: "18px" },
+              whiteSpace: { xs: "normal", sm: "nowrap" },
+              ml: { xs: 0, sm: 4 },
+            }}
+          >
+            {job.location}
+          </Typography>
         </Box>
       ))}
     </Box>

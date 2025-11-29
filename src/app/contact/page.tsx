@@ -44,7 +44,7 @@ export default function ContactPage() {
 
   // Only digits for phone
   const handlePhoneChange = (e: any) => {
-    const numeric = e.target.value.replace(+/\D/g, "");
+    const numeric = e.target.value.replace(/\D/g, "");
     setPhone(numeric);
   };
 
@@ -108,26 +108,44 @@ export default function ContactPage() {
   };
 
   return (
-    <Box sx={{ py: 10 }}>
+    <Box sx={{ py: { xs: 12, md: 10 }, px: { xs: 2, sm: 3 } }}>
       <Container maxWidth="lg">
         <Typography
           variant="h3"
-          sx={{ fontWeight: 700, mb: 4, textAlign: "center" }}
+          sx={{
+            fontWeight: 700,
+            mb: { xs: 3, md: 4 },
+            textAlign: "center",
+            fontSize: { xs: "2rem", sm: "2.5rem", md: "3rem" },
+          }}
         >
           Contact Us
         </Typography>
 
-        <Grid container spacing={6}>
+        <Grid container spacing={{ xs: 3, md: 6 }}>
           {/* LEFT — FORM */}
-          <Grid size={{ sm: 7 }}>
-            <Paper elevation={3} sx={{ p: 4, borderRadius: 3 }}>
-              <Typography variant="h5" sx={{ fontWeight: 600, mb: 3 }}>
+          <Grid size={{ xs: 12, md: 7 }}>
+            <Paper
+              elevation={3}
+              sx={{
+                p: { xs: 2.5, sm: 3, md: 4 },
+                borderRadius: 3,
+              }}
+            >
+              <Typography
+                variant="h5"
+                sx={{
+                  fontWeight: 600,
+                  mb: 3,
+                  fontSize: { xs: "1.25rem", sm: "1.5rem" },
+                }}
+              >
                 Send a Message
               </Typography>
 
-              <Grid container spacing={3}>
+              <Grid container spacing={{ xs: 2, sm: 3 }}>
                 {/* Full Name */}
-                <Grid size={{ sm: 6 }}>
+                <Grid size={{ xs: 12, sm: 6 }}>
                   <TextField
                     fullWidth
                     label="Full Name"
@@ -142,7 +160,7 @@ export default function ContactPage() {
                 </Grid>
 
                 {/* Email */}
-                <Grid size={{ sm: 6 }}>
+                <Grid size={{ xs: 12, sm: 6 }}>
                   <TextField
                     fullWidth
                     label="Email Address"
@@ -157,7 +175,7 @@ export default function ContactPage() {
                 </Grid>
 
                 {/* Phone */}
-                <Grid size={{ sm: 6 }}>
+                <Grid size={{ xs: 12, sm: 6 }}>
                   <TextField
                     fullWidth
                     label="Phone Number"
@@ -170,7 +188,7 @@ export default function ContactPage() {
                 </Grid>
 
                 {/* Company */}
-                <Grid size={{ sm: 6 }}>
+                <Grid size={{ xs: 12, sm: 6 }}>
                   <TextField
                     fullWidth
                     label="Company"
@@ -182,7 +200,7 @@ export default function ContactPage() {
                 </Grid>
 
                 {/* Math Challenge */}
-                <Grid size={{ sm: 6 }}>
+                <Grid size={{ xs: 12, sm: 6 }}>
                   <TextField
                     fullWidth
                     size="small"
@@ -199,7 +217,7 @@ export default function ContactPage() {
                 </Grid>
 
                 {/* Reason */}
-                <Grid size={{ sm: 6 }}>
+                <Grid size={{ xs: 12, sm: 6 }}>
                   <TextField
                     fullWidth
                     required
@@ -211,16 +229,9 @@ export default function ContactPage() {
                     onChange={(e) => setReason(e.target.value)}
                     error={!!errors.reason}
                     helperText={errors.reason}
-                    sx={{
-                      "& .MuiInputBase-root": {
-                        height: 40,
-                      },
-                      "& .MuiInputLabel-root": {
-                        fontSize: "13px",
-                      },
-                    }}
+                    sx={smallLabel}
                   >
-                    <MenuItem value="">Select-:</MenuItem>
+                    <MenuItem value="">Select</MenuItem>
                     <MenuItem value="Business">Business</MenuItem>
                     <MenuItem value="Investment">Investment</MenuItem>
                     <MenuItem value="Partnership">Partnership</MenuItem>
@@ -229,7 +240,7 @@ export default function ContactPage() {
                 </Grid>
 
                 {/* Message */}
-                <Grid size={{ sm: 12 }}>
+                <Grid size={{ xs: 12 }}>
                   <TextField
                     fullWidth
                     label="Message"
@@ -243,16 +254,27 @@ export default function ContactPage() {
 
                 {/* CENTERED BUTTONS */}
                 <Grid
-                  size={{ sm: 12 }}
-                  sx={{ display: "flex", justifyContent: "center", mt: 2 }}
+                  size={{ xs: 12 }}
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    mt: 2,
+                  }}
                 >
-                  <Box sx={{ display: "flex", gap: 3 }}>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      gap: { xs: 2, sm: 3 },
+                      flexDirection: { xs: "column", sm: "row" },
+                      width: { xs: "100%", sm: "auto" },
+                    }}
+                  >
                     <Button
+                      fullWidth={true}
                       size="small"
                       sx={{
                         backgroundColor: "#c62828",
                         border: "1px solid transparent",
-
                         "&:hover": {
                           backgroundColor: "#fff",
                           border: "1px solid #c62828",
@@ -260,9 +282,11 @@ export default function ContactPage() {
                         },
                         color: "white",
                         px: 3,
+                        py: { xs: 1.5, sm: 1 },
                         borderRadius: "10px",
                         textTransform: "none",
                         fontWeight: 600,
+                        minWidth: { sm: "120px" },
                       }}
                       onClick={handleCancel}
                     >
@@ -270,11 +294,11 @@ export default function ContactPage() {
                     </Button>
 
                     <Button
+                      fullWidth={true}
                       size="small"
                       sx={{
                         backgroundColor: "#c62828",
                         border: "1px solid transparent",
-
                         "&:hover": {
                           backgroundColor: "#fff",
                           border: "1px solid #c62828",
@@ -282,9 +306,11 @@ export default function ContactPage() {
                         },
                         color: "white",
                         px: 3,
+                        py: { xs: 1.5, sm: 1 },
                         borderRadius: "10px",
                         textTransform: "none",
                         fontWeight: 600,
+                        minWidth: { sm: "120px" },
                       }}
                       onClick={handleSubmit}
                     >
@@ -297,25 +323,55 @@ export default function ContactPage() {
           </Grid>
 
           {/* RIGHT — CONTACT INFO */}
-          <Grid size={{ sm: 5 }}>
-            <Box sx={{ p: 3 }}>
-              <Typography variant="h5" sx={{ fontWeight: 600, mb: 2 }}>
+          <Grid size={{ xs: 12, md: 5 }}>
+            <Box
+              sx={{
+                p: { xs: 2.5, sm: 3 },
+                backgroundColor: { xs: "transparent", md: "transparent" },
+              }}
+            >
+              <Typography
+                variant="h5"
+                sx={{
+                  fontWeight: 600,
+                  mb: 2,
+                  fontSize: { xs: "1.25rem", sm: "1.5rem" },
+                }}
+              >
                 Our Office
               </Typography>
 
-              <Typography sx={{ mb: 3, fontSize: "1.05rem" }}>
+              <Typography
+                sx={{
+                  mb: 3,
+                  fontSize: { xs: "0.95rem", sm: "1.05rem" },
+                  lineHeight: 1.6,
+                }}
+              >
                 Evest Professional Services 4th Floor, Kings Court 3 Keystone
                 Bank Crescent Off Adeyemo Alakija Street Victoria Island, Lagos
               </Typography>
 
-              <Typography sx={{ fontWeight: 600 }}>Phone:</Typography>
-              <Typography sx={{ mb: 3 }}>+234 806 123 4567</Typography>
+              <Typography sx={{ fontWeight: 600, fontSize: { xs: "0.95rem", sm: "1rem" } }}>
+                Phone:
+              </Typography>
+              <Typography sx={{ mb: 3, fontSize: { xs: "0.95rem", sm: "1rem" } }}>
+                +234 806 123 4567
+              </Typography>
 
-              <Typography sx={{ fontWeight: 600 }}>Email:</Typography>
-              <Typography sx={{ mb: 3 }}>support@renaissance.com</Typography>
+              <Typography sx={{ fontWeight: 600, fontSize: { xs: "0.95rem", sm: "1rem" } }}>
+                Email:
+              </Typography>
+              <Typography sx={{ mb: 3, fontSize: { xs: "0.95rem", sm: "1rem" } }}>
+                support@renaissance.com
+              </Typography>
 
-              <Typography sx={{ fontWeight: 600 }}>Opening Hours</Typography>
-              <Typography>Mon – Fri: 8:00am – 6:00pm</Typography>
+              <Typography sx={{ fontWeight: 600, fontSize: { xs: "0.95rem", sm: "1rem" } }}>
+                Opening Hours
+              </Typography>
+              <Typography sx={{ fontSize: { xs: "0.95rem", sm: "1rem" } }}>
+                Mon – Fri: 8:00am – 6:00pm
+              </Typography>
             </Box>
           </Grid>
         </Grid>
